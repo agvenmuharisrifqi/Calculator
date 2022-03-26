@@ -1,0 +1,1 @@
+const navMenu = document.getElementById("navbar");

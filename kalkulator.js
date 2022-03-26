@@ -1,0 +1,1 @@
+const navBar = document.getElemetById("hallo")

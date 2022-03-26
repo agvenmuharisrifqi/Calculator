@@ -1,0 +1,118 @@
+:root {
+  --heading: 'Lobster',cursive;
+  --body: 'Roboto', sans-serif;
+}
+
+*, html, body {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--body);
+  font-size: 14px;
+  color: #444444;
+  line-height: 1.2;
+}
+
+h1,h2,h3,h4,h5,h6{
+  font-family: var(--heading);
+  line-height: 1;
+}
+
+h1 { font-size: 2.25rem; }
+
+h2 { font-size: 2rem; }
+
+h3 { font-size: 1.75rem; }
+
+h4 { font-size: 1.5rem; }
+
+h5 { font-size: 1.25rem; }
+
+h6 { font-size: 1rem; }
+
+a {  
+  text-decoration: none;
+  display: inline-block;
+}
+
+li{
+  list-style: none;
+}
+
+.container {
+  max-width: 1400px;
+  width: 80%;
+  padding: 0 15px;
+  margin: auto;
+}
+
+
+/*********************
+ Navbar Style ********
+*********************/
+
+.navbar {
+  height: 100vh;
+  max-width: 400px;
+  width: 100%;
+  padding: 20px 0;
+  background-color: #16507B;
+  color: #FFFFFF;
+}
+
+.navbar a {
+  color: #73FDFF;
+}
+
+.navbar a:hover {
+  color: #F2F3F5;
+}
+
+.navbar .container{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.navbar__toggle__wrapper {
+  display: flex;
+  margin-bottom: 15px;
+  align-items: center;
+}
+
+.navbar__toggle {
+  margin-right: 10px;
+}
+
+.navbar__toggle span {
+  display: block;
+  width: 30px;
+  height: 5px;
+  margin: 3px 0;
+  background-color: #FFFFFF;
+  border-radius: 3px;
+}
+
+.navbar__toggle:hover span {
+  background-color: #73FDFF;
+}
+
+.navbar__brand > h1{
+  color: #66FFB3;
+  display: none;
+}
+.navbar__brand .navbar__brand__active {
+  display: block;
+}
+
+.navbar__list {
+  flex-grow: 2;
+}
+
+.navbar__list .navbar__item {
+  padding: 10px 0;
+}
