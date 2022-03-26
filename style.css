@@ -158,9 +158,10 @@ li {
 .navbar__list .navbar__item a {
   display: flex;
   align-items: center;
+  display: inline-block;
 }
 
-.navbar__list .navbar__item i {
+.navbar__list .navbar__item a i {
   font-size: 30px;
   width: 30px;
   margin-right: 25px;

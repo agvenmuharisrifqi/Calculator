@@ -7,9 +7,10 @@ const navToggle = document.getElementById("navbar-toggle");
 navToggle.addEventListener('click', ()=>{
     navBar.classList.toggle("active");
 })
-
-function inactiveNavbar(){
+window.addEventListener("resize", ()=>{
     if (window.innerWidth < 992){
         navBar.classList.add("active");
+    }else {
+        navBar.classList.remove("active");
     }
-}
+})
