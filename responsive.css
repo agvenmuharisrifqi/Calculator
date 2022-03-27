@@ -1,5 +1,8 @@
 @media (min-width: 992px) {
 
+    /*********************
+    Calculator Style ****
+    *********************/
     .calculator__content,
     .bmi__content {
         padding-left: 400px;
@@ -14,8 +17,78 @@
 @media (max-width: 992px) {}
 
 @media (max-width: 576px) {
+
+    /*********************
+    Navbar Style *********
+    *********************/
+    .navbar {
+        height: 100vh;
+    }
+
+    .navbar__toggle__wrapper {
+        padding: 0 5px;
+    }
+
+    .navbar__toggle span {
+        display: block;
+        width: 20px;
+        height: 3px;
+        margin: 3px 0;
+        border-radius: 3px;
+    }
+
+    .navbar__brand>h1 {
+        font-size: 20px;
+    }
+
+    .navbar__list .navbar__item {
+        font-size: 14px;
+        padding: 15px 5px;
+    }
+
+    .navbar__list .navbar__item a i {
+        font-size: 20px;
+        width: 20px;
+    }
+
+    /************
+    Navbar Active
+    ************/
+    .navbar.active {
+        width: 30px;
+    }
+
+    /*********************
+    Calculator Style ****
+    *********************/
+    .calculator__content {
+        padding-left: 30px;
+    }
+
     .calculator__wrapper {
         width: 100%;
         height: 100%;
+        border-radius: 0;
+    }
+
+    /*********************
+    BMI Style ***********
+    *********************/
+    .bmi__content {
+        padding-left: 30px;
+    }
+
+    /*********************
+    Currency Style ******
+    *********************/
+    .currency__content {
+        padding-left: 30px;
+    }
+
+    /*********************
+    Temperature Style ***
+    *********************/
+    .temperature__content {
+        padding-left: 30px;
     }
 }

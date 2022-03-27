@@ -37,14 +37,14 @@ for (let item = 0; item < navItem.length; item++) {
 /**
  * @Function Interface Calculator
  */
-// const re = /[^x\/\-\+\d]/gmi;
+const re = /[^x\/\-\+\d]/gmi;
 const inputNum = document.getElementById("number");
-// inputNum.addEventListener('keyup', (e)=>{
-//     let val = inputNum.value;
-//     let res = val.replace(re, "");
-//     inputNum.value = res;
-// })
+inputNum.addEventListener('keyup', (e)=>{
+    let val = inputNum.value;
+    let res = val.replace(re, "");
+    inputNum.value = res;
+})
 
-let h = window.innerHeight;
-let w = window.innerWidth;
-inputNum.value = `L ${w}, T ${h}`;
+// let h = window.innerHeight;
+// let w = window.innerWidth;
+// inputNum.value = `L ${w}, T ${h}`;

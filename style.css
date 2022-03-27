@@ -225,6 +225,10 @@ Navbar Active
   display: none;
 }
 
+.navbar.active .navbar__list .navbar__item {
+  display: flex;
+}
+
 /*********************
  Main Style **********
 *********************/
