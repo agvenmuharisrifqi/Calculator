@@ -350,10 +350,12 @@ Navbar Active
 }
 
 .number {
+  padding: 0 5px;
+  height: 55px;
+  line-height: 55px;
   text-align: right;
   font-size: 32px;
   font-weight: 600;
-  padding: 5px;
   background: rgb(255, 255, 255);
   background: -moz-radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.17) 100%);
   background: -webkit-radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.17) 100%);
