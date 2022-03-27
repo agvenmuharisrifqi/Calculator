@@ -13,4 +13,9 @@
 
 @media (max-width: 992px) {}
 
-@media (max-width: 576px) {}
+@media (max-width: 576px) {
+    .calculator__wrapper {
+        width: 100%;
+        height: 100%;
+    }
+}

@@ -233,8 +233,6 @@ Navbar Active
  Calculator Style ****
 *********************/
 .calculator__content {
-  padding-top: 30px;
-  padding-bottom: 30px;
   padding-left: 60px;
   display: none;
   height: 100vh;
@@ -251,11 +249,15 @@ Navbar Active
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffffff", endColorstr="#ffffff", GradientType=1);
   padding: 30px;
   border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
+/* 
 .calculator__wrapper div {
-  display: flex;
-}
+} */
 
 .calculator__wrapper .button__persegi {
   font-family: var(--heading);
@@ -273,6 +275,10 @@ Navbar Active
 .calculator__wrapper .button__persegi:hover {
   color: #73FDFF;
   opacity: .9;
+}
+
+.button__wrapper {
+  display: flex;
 }
 
 .button__persegi.panjang {
