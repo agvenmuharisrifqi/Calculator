@@ -25,7 +25,6 @@ span {
 input {
   display: block;
   font-family: var(--body);
-  text-align: right;
   border: none;
 }
 
@@ -351,6 +350,7 @@ Navbar Active
 }
 
 .number {
+  text-align: right;
   font-size: 32px;
   font-weight: 600;
   padding: 5px;

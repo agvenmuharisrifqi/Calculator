@@ -1,4 +1,5 @@
 /**
+ * @Package Website Kalkulator
  * @Function Navbar And Main Animation
  */
 
@@ -31,20 +32,3 @@ for (let item = 0; item < navItem.length; item++) {
         contentItem[item].classList.add("active");
     });
 }
-
-
-
-/**
- * @Function Interface Calculator
- */
-const re = /[^x\/\-\+\d]/gmi;
-const inputNum = document.getElementById("number");
-inputNum.addEventListener('keyup', (e)=>{
-    let val = inputNum.value;
-    let res = val.replace(re, "");
-    inputNum.value = res;
-})
-
-// let h = window.innerHeight;
-// let w = window.innerWidth;
-// inputNum.value = `L ${w}, T ${h}`;
