@@ -18,6 +18,10 @@ body {
   line-height: 1.2;
 }
 
+span {
+  display: inline-block;
+}
+
 input {
   display: block;
   font-family: var(--body);
@@ -170,7 +174,6 @@ li {
 .navbar__list .navbar__item a {
   display: flex;
   align-items: center;
-  display: inline-block;
 }
 
 .navbar__list .navbar__item a i {
