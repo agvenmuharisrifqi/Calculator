@@ -1,3 +1,14 @@
+@media (min-width: 992px) {
+
+    .main__content {
+        padding-left: 400px;
+    }
+
+    .navbar.active~.main__content {
+        padding-left: 60px;
+    }
+}
+
 @media (max-width: 992px) {}
 
 @media (max-width: 576px) {}

@@ -18,6 +18,18 @@ body {
   line-height: 1.2;
 }
 
+input {
+  display: block;
+  font-family: var(--body);
+  text-align: right;
+  border: none;
+}
+
+input:focus {
+  border: none;
+  outline: none;
+}
+
 h1,
 h2,
 h3,
@@ -216,6 +228,94 @@ Navbar Active
 /*********************
  Main Style ********
 *********************/
-main {
-  padding: 0 60px;
+.main__content {
+  padding-left: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #DAF0FF;
+}
+
+.calculator__wrapper {
+  background: rgb(255, 255, 255);
+  background: -moz-linear-gradient(135deg, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.17) 100%);
+  background: -webkit-linear-gradient(135deg, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.17) 100%);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.17) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffffff", endColorstr="#ffffff", GradientType=1);
+  padding: 20px;
+  border-radius: 15px;
+}
+
+.calculator__wrapper div {
+  display: flex;
+}
+
+.calculator__wrapper .button__persegi {
+  font-family: var(--heading);
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: 700;
+  text-align: center;
+  width: 50px;
+  padding: 20px 0;
+  margin: 3px;
+  background-color: rgba(255, 255, 255, .8);
+  border-radius: 10px;
+}
+
+.calculator__wrapper .button__persegi:hover {
+  color: #73FDFF;
+  opacity: .9;
+}
+
+.button__persegi.panjang {
+  width: calc(50px * 2 + 3px * 2);
+}
+
+.calculator__wrapper .button__normal {
+  color: #007779;
+}
+
+.calculator__wrapper .button__function {
+  color: #64b6b8;
+}
+
+.input__wrapper {
+  width: calc(50px * 4 + 3px * 8);
+  display: flex;
+  flex-direction: column;
+  padding: 10px 0;
+}
+
+.result__wrapper {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.result__wrapper label {
+  font-family: var(--heading);
+  margin-right: 10px;
+}
+
+.result {
+  text-align: left;
+  width: 100%;
+  font-size: 50px;
+  font-weight: 700;
+  background-color: transparent;
+}
+
+.number {
+  font-size: 30px;
+  font-weight: 500;
+  padding: 5px;
+  background: rgb(255, 255, 255);
+  background: -moz-radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.17) 100%);
+  background: -webkit-radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.17) 100%);
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.17) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffffff", endColorstr="#ffffff", GradientType=1);
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, .1);
 }
