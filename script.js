@@ -1,19 +1,35 @@
 /**
- * @Function Navbar
+ * @Function Navbar And Main Animation
  */
 
-const navBar = document.getElementById("navbar");
+const nav = document.getElementById("navbar");
 const navToggle = document.getElementById("navbar-toggle");
+const navBar = document.getElementById("navbar-list");
+const navItem = navBar.getElementsByClassName("navbar__item");
+const contentBar = document.getElementById("main-content");
+const contentItem = contentBar.getElementsByClassName("content__item");
+
 navToggle.addEventListener('click', ()=>{
-    navBar.classList.toggle("active");
+    nav.classList.toggle("active");
 })
 
 const windowWidth = ()=>{
     if (window.innerWidth < 992){
-        navBar.classList.add("active");
+        nav.classList.add("active");
     }else {
-        navBar.classList.remove("active");  
+        nav.classList.remove("active");  
     }
+}
+
+for (let item = 0; item < navItem.length; item++) {
+    navItem[item].addEventListener("click", function() {
+        let currentNav = navBar.querySelector(".active");
+        let currentContent = contentBar.querySelector(".active");
+        currentNav.className = currentNav.className.replace(" active", "");
+        currentContent.className = currentContent.className.replace(" active", "");
+        navItem[item].classList.add("active");
+        contentItem[item].classList.add("active");
+    });
 }
 
 
@@ -21,12 +37,10 @@ const windowWidth = ()=>{
 /**
  * @Function Calculator
  */
-const re = /\s|\D/gmi;
+const re = /[^x\/\-\+\d]/gmi;
 const inputNum = document.getElementById("number");
 inputNum.addEventListener('keyup', (e)=>{
-    var val = inputNum.value;
+    let val = inputNum.value;
     let res = val.replace(re, "");
     inputNum.value = res;
 })
-
-console.log(document.getElementById('coba').textContent);

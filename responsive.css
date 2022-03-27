@@ -1,10 +1,12 @@
 @media (min-width: 992px) {
 
-    .main__content {
+    .calculator__content,
+    .bmi__content {
         padding-left: 400px;
     }
 
-    .navbar.active~.main__content {
+    .navbar.active~.main__content .calculator__content,
+    .navbar.active~.main__content .bmi__content {
         padding-left: 60px;
     }
 }

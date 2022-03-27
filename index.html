@@ -13,9 +13,17 @@
   <meta name="author" content="Agven Muharis Rifqi" />
   <meta name="description" content="Website Kalkulator membantu anda dalam menghitung sehari-hari" />
 
+  <!-- Favicon -->
+  <link rel="icon" href="img/icon/Common_Favicon_Sm.png" sizes="32x32">
+  <link rel="icon" href="img/icon/Common_Favicon_Lg.png" sizes="192x192">
+  <link rel="apple-touch-icon" href="img/icon/Apple_Favicon.png">
+
   <!-- Vendor Website -->
-  <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Roboto:wght@400;500;700;900&display=swap"
+  <link
+    href="https://fonts.googleapis.com/css2?family=Lobster&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
     rel="stylesheet">
+  <!-- <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Roboto:wght@400;500;700;900&display=swap"
+    rel="stylesheet"> -->
 
   <!-- Style Website -->
   <link rel="stylesheet" href="style.css" />
@@ -39,26 +47,26 @@
         </a>
       </div>
       <ul id="navbar-list" class="navbar__list">
-        <li class="navbar__item">
-          <a href="#">
+        <li class="navbar__item active">
+          <a href="#standard">
             <i class="fa-solid fa-calculator"></i>
             <span>Standard</span>
           </a>
         </li>
         <li class="navbar__item">
-          <a href="#">
+          <a href="#bmi">
             <i class="fa-solid fa-weight-scale"></i>
             <span>BMI</span>
           </a>
         </li>
         <li class="navbar__item">
-          <a href="#">
+          <a href="#currency">
             <i class="fa-solid fa-coins"></i>
             <span>Currency</span>
           </a>
         </li>
         <li class="navbar__item">
-          <a href="#">
+          <a href="#temperature">
             <i class="fa-solid fa-temperature-full"></i>
             <span>Temperature</span>
           </a>
@@ -71,59 +79,78 @@
 
   </nav>
 
-  <main class="main__content">
-    <div class="calculator__wrapper">
-      <div class="input__wrapper">
-        <div class="result__wrapper">
-          <label for="result">Result</label>
-          <input type="text" value="0" class="result" name="result" id="result" disabled>
+  <main id="main-content" class="main__content">
+    <section class="content__item calculator__content active">
+      <div class="calculator__wrapper">
+        <div class="input__wrapper">
+          <div class="result__wrapper">
+            <p>Result</p>
+            <h1 id="result" class="result">
+              0
+            </h1>
+          </div>
+          <input type="text" value="" class="number" name="number" id="number">
         </div>
-        <input type="text" value="" class="number" name="number" id="number">
+        <div class="button__wrapper">
+          <p id="coba" class="button__persegi button__function">AC</p>
+          <p class="button__persegi button__function">
+            <i class="fa-solid fa-delete-left"></i>
+          </p>
+          <p class="button__persegi button__function">
+            <i class="fa-solid fa-plus-minus"></i>
+          </p>
+          <p class="button__persegi button__function">
+            <i class="fa-solid fa-divide"></i>
+          </p>
+        </div>
+        <div class="button__wrapper">
+          <p class="button__persegi button__normal">1</p>
+          <p class="button__persegi button__normal">2</p>
+          <p class="button__persegi button__normal">3</p>
+          <p class="button__persegi button__function">
+            <i class="fa-solid fa-xmark"></i>
+          </p>
+        </div>
+        <div class="button__wrapper">
+          <p class="button__persegi button__normal">4</p>
+          <p class="button__persegi button__normal">5</p>
+          <p class="button__persegi button__normal">6</p>
+          <p class="button__persegi button__function">
+            <i class="fa-solid fa-minus"></i>
+          </p>
+        </div>
+        <div class="button__wrapper">
+          <p class="button__persegi button__normal">7</p>
+          <p class="button__persegi button__normal">8</p>
+          <p class="button__persegi button__normal">9</p>
+          <p class="button__persegi button__function">
+            <i class="fa-solid fa-plus"></i>
+          </p>
+        </div>
+        <div class="button__wrapper">
+          <p class="button__persegi button__normal">.</p>
+          <p class="button__persegi panjang button__normal">0</p>
+          <p class="button__persegi button__function">
+            <i class="fa-solid fa-equals"></i>
+          </p>
+        </div>
       </div>
-      <div class="button__wrapper">
-        <p id="coba" class="button__persegi button__function">AC</p>
-        <p class="button__persegi button__function">
-          <i class="fa-solid fa-delete-left"></i>
-        </p>
-        <p class="button__persegi button__function">
-          <i class="fa-solid fa-plus-minus"></i>
-        </p>
-        <p class="button__persegi button__function">
-          <i class="fa-solid fa-divide"></i>
-        </p>
+    </section>
+    <section class="content__item bmi__content">
+      <div class="bmi__wrapper">
+        BMI Calculator
       </div>
-      <div class="button__wrapper">
-        <p class="button__persegi button__normal">1</p>
-        <p class="button__persegi button__normal">2</p>
-        <p class="button__persegi button__normal">3</p>
-        <p class="button__persegi button__function">
-          <i class="fa-solid fa-xmark"></i>
-        </p>
+    </section>
+    <section class="content__item currency__content">
+      <div class="currency__wrapper">
+        Currency Calculator
       </div>
-      <div class="button__wrapper">
-        <p class="button__persegi button__normal">4</p>
-        <p class="button__persegi button__normal">5</p>
-        <p class="button__persegi button__normal">6</p>
-        <p class="button__persegi button__function">
-          <i class="fa-solid fa-minus"></i>
-        </p>
+    </section>
+    <section class="content__item temperature__content">
+      <div class="temperature__wrapper">
+        Temperature Calculator
       </div>
-      <div class="button__wrapper">
-        <p class="button__persegi button__normal">7</p>
-        <p class="button__persegi button__normal">8</p>
-        <p class="button__persegi button__normal">9</p>
-        <p class="button__persegi button__function">
-          <i class="fa-solid fa-plus"></i>
-        </p>
-      </div>
-      <div class="button__wrapper">
-        <p class="button__persegi button__normal">.</p>
-        <p class="button__persegi panjang button__normal">0</p>
-        <p class="button__persegi button__function">
-          <i class="fa-solid fa-equals"></i>
-        </p>
-      </div>
-    </div>
+    </section>
   </main>
 
   <!-- Script Website -->

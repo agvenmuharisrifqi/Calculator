@@ -1,6 +1,6 @@
 :root {
   --heading: 'Lobster', cursive;
-  --body: 'Roboto', sans-serif;
+  --body: 'Poppins', sans-serif;
 }
 
 *,
@@ -98,6 +98,7 @@ li {
   padding: 30px 0;
   background-color: #16507B;
   color: #FFFFFF;
+  z-index: 999;
 }
 
 .navbar a {
@@ -184,21 +185,17 @@ li {
   color: #FFFFFF;
 }
 
-.navbar__item:hover {
+.navbar__item:hover,
+.navbar__item.active {
   background: #a8ff78;
-  /* fallback for old browsers */
   background: -webkit-linear-gradient(to left, #78ffd6, #a8ff78);
-  /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to left, #78ffd6, #a8ff78);
-  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
 }
 
-.navbar__item:hover a {
-  color: #16507B;
-}
-
-.navbar__item:hover a i {
+.navbar__item:hover a,
+.navbar__item:hover a i,
+.navbar__item.active a,
+.navbar__item.active a i {
   color: #16507B;
 }
 
@@ -229,14 +226,20 @@ Navbar Active
 }
 
 /*********************
- Main Style ********
+ Main Style **********
 *********************/
-.main__content {
+
+/*********************
+ Calculator Style ****
+*********************/
+.calculator__content {
+  padding-top: 30px;
+  padding-bottom: 30px;
   padding-left: 60px;
-  display: flex;
+  display: none;
+  height: 100vh;
   justify-content: center;
   align-items: center;
-  height: 100vh;
   background-color: #DAF0FF;
 }
 
@@ -246,7 +249,7 @@ Navbar Active
   background: -webkit-linear-gradient(135deg, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.17) 100%);
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.17) 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffffff", endColorstr="#ffffff", GradientType=1);
-  padding: 20px;
+  padding: 30px;
   border-radius: 15px;
 }
 
@@ -260,7 +263,7 @@ Navbar Active
   font-size: 20px;
   font-weight: 700;
   text-align: center;
-  width: 50px;
+  width: 60px;
   padding: 20px 0;
   margin: 3px;
   background-color: rgba(255, 255, 255, .8);
@@ -273,7 +276,7 @@ Navbar Active
 }
 
 .button__persegi.panjang {
-  width: calc(50px * 2 + 3px * 2);
+  width: calc(60px * 2 + 3px * 2);
 }
 
 .calculator__wrapper .button__normal {
@@ -285,7 +288,7 @@ Navbar Active
 }
 
 .input__wrapper {
-  width: calc(50px * 4 + 3px * 8);
+  width: calc(60px * 4 + 3px * 8);
   display: flex;
   flex-direction: column;
   padding: 10px 0;
@@ -295,24 +298,51 @@ Navbar Active
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  color: black;
 }
 
-.result__wrapper label {
+.result__wrapper p {
   font-family: var(--heading);
   margin-right: 10px;
 }
 
 .result {
+  font-family: var(--body);
   text-align: left;
   width: 100%;
-  font-size: 50px;
+  font-size: 70px;
   font-weight: 700;
-  background-color: transparent;
+  overflow-x: auto;
+  overflow-y: hidden;
+  cursor: pointer;
+  padding: 10px 5px 0;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.result::-webkit-scrollbar {
+  height: 5px;
+  position: absolute;
+  transform: translateY(100px);
+}
+
+.result::-webkit-scrollbar-track {
+  background-color: #73FDFF;
+  border-radius: 10px;
+}
+
+.result::-webkit-scrollbar-thumb {
+  background: #64b6b8;
+  border-radius: 10px;
+}
+
+.result::-webkit-scrollbar-thumb:hover {
+  background: #16507B;
 }
 
 .number {
-  font-size: 30px;
-  font-weight: 500;
+  font-size: 32px;
+  font-weight: 600;
   padding: 5px;
   background: rgb(255, 255, 255);
   background: -moz-radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.17) 100%);
@@ -321,4 +351,85 @@ Navbar Active
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffffff", endColorstr="#ffffff", GradientType=1);
   border-radius: 5px;
   box-shadow: 0 0 5px rgba(0, 0, 0, .1);
+}
+
+/****************
+Calculator Active
+****************/
+.calculator__content.active {
+  display: flex;
+  animation: AppearSide 1s ease-in;
+}
+
+/*********************
+ BMI Style ***********
+*********************/
+.bmi__content {
+  padding-left: 60px;
+  height: 100vh;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffdada;
+}
+
+/*********
+BMI Active
+*********/
+.bmi__content.active {
+  display: flex;
+  animation: AppearSide 1s ease-in;
+}
+
+/*********************
+ Currency Style ******
+*********************/
+.currency__content {
+  padding-left: 60px;
+  height: 100vh;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  background-color: #feffda;
+}
+
+/**************
+Currency Active
+**************/
+.currency__content.active {
+  display: flex;
+  animation: AppearSide 1s ease-in;
+}
+
+/*********************
+ Temperature Style ***
+*********************/
+.temperature__content {
+  padding-left: 60px;
+  height: 100vh;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  background-color: #daffe0;
+}
+
+/*****************
+Temperature Active
+*****************/
+.temperature__content.active {
+  display: flex;
+  animation: AppearSide 1s ease-in;
+}
+
+/*********************
+ Animate Style *******
+*********************/
+@keyframes AppearSide {
+  0% {
+    transform: translateX(-100%);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
 }
