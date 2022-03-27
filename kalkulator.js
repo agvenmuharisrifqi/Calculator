@@ -1,1 +1,3 @@
-const navBar = document.getElemetById("hallo")
+/**
+ * @Function Calculator Standard
+ */
