@@ -14,14 +14,6 @@ navToggle.addEventListener('click', ()=>{
     nav.classList.toggle("active");
 })
 
-const windowWidth = ()=>{
-    if (window.innerWidth < 992){
-        nav.classList.add("active");
-    }else {
-        nav.classList.remove("active");  
-    }
-}
-
 for (let item = 0; item < navItem.length; item++) {
     navItem[item].addEventListener("click", function() {
         let currentNav = navBar.querySelector(".active");
@@ -31,4 +23,12 @@ for (let item = 0; item < navItem.length; item++) {
         navItem[item].classList.add("active");
         contentItem[item].classList.add("active");
     });
+}
+
+function windowWidth(){
+    if (window.innerWidth < 992){
+        nav.classList.add("active");
+    }else {
+        nav.classList.remove("active");  
+    }
 }

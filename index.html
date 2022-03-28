@@ -85,7 +85,7 @@
         <div class="input__wrapper">
           <div class="result__wrapper">
             <p>Result</p>
-            <h1 id="result" class="result">
+            <h1 id="result" class="result" draggable="true">
               0
             </h1>
           </div>
@@ -93,13 +93,13 @@
         </div>
         <div class="button__wrapper">
           <p id="delete-all" class="button__persegi button__function">AC</p>
-          <p class="button__persegi button__function">
+          <p id="back-space" class="button__persegi button__function">
             <i class="fa-solid fa-delete-left"></i>
           </p>
-          <p class="button__persegi button__function">
-            <i class="fa-solid fa-plus-minus"></i>
+          <p class="button__persegi button__function button__calculation" data-btn="%">
+            <i class="fa-solid fa-percent"></i>
           </p>
-          <p class="button__persegi button__function">
+          <p class="button__persegi button__function button__calculation" data-btn="/">
             <i class="fa-solid fa-divide"></i>
           </p>
         </div>
@@ -107,7 +107,7 @@
           <p class="button__persegi button__normal">1</p>
           <p class="button__persegi button__normal">2</p>
           <p class="button__persegi button__normal">3</p>
-          <p class="button__persegi button__function">
+          <p class="button__persegi button__function button__calculation" data-btn="*">
             <i class="fa-solid fa-xmark"></i>
           </p>
         </div>
@@ -115,7 +115,7 @@
           <p class="button__persegi button__normal">4</p>
           <p class="button__persegi button__normal">5</p>
           <p class="button__persegi button__normal">6</p>
-          <p class="button__persegi button__function">
+          <p class="button__persegi button__function button__calculation" data-btn="-">
             <i class="fa-solid fa-minus"></i>
           </p>
         </div>
@@ -123,14 +123,14 @@
           <p class="button__persegi button__normal">7</p>
           <p class="button__persegi button__normal">8</p>
           <p class="button__persegi button__normal">9</p>
-          <p class="button__persegi button__function">
+          <p class="button__persegi button__function button__calculation" data-btn="+">
             <i class="fa-solid fa-plus"></i>
           </p>
         </div>
         <div class="button__wrapper">
           <p class="button__persegi button__normal">,</p>
           <p class="button__persegi panjang button__normal">0</p>
-          <p class="button__persegi button__function">
+          <p id="button-result" class="button__persegi button__function">
             <i class="fa-solid fa-equals"></i>
           </p>
         </div>
