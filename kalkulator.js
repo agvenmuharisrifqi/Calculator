@@ -2,40 +2,25 @@
  * @Subpacakge Calculator Standard
  * @Function Input Session
  */
-
 class Calculator{
     constructor(input, result){
         this.input = input;
         this.result = result;
         this.first_number = 0;
         this.operator = "";
-        this.second_number = 0;
+        this.second_number = "";
+        this.history = [];
+        this.index_history = 0;
     }
     addNumberToInput(number){
-        let num = number.replace(/^0|^,/gm, '');
-        const result = this.thousandFormat(num);
-        this.input.value = result;
-        this.updateNumber(result);
-    }
-    thousandFormat(angka){
-        var angka = angka.toString();
-        var number_string = angka.replace(/[^,\d]/g, ''),
-        split           = number_string.split(','),
-        sisa            = split[0].length % 3,
-        angka_hasil     = split[0].substr(0, sisa),
-        ribuan          = split[0].substr(sisa).match(/\d{3}/gi);
-        if(ribuan){
-            let separator = sisa ? '.' : '';
-            angka_hasil += separator + ribuan.join('.');
-        }
-        angka_hasil = split[1] != undefined ? angka_hasil + ',' + split[1] : angka_hasil;
-        return angka_hasil;
+        let num = number.replace(/^0|^\./gm, '');
+        this.input.value = num;
+        this.updateNumber(num);
     }
     updateNumber(number_recent){
-        let number = number_recent.split('.').join('');
-        let number_check = number.match(/,/gm);
+        let number = number_recent.split(',').join('');
+        let number_check = number.match(/./gm);
         if (number_check){
-            number = number.replace(/,/gm, '.');
             number = parseFloat(number);
         }else {
             number = parseInt(number);
@@ -43,7 +28,8 @@ class Calculator{
         this.second_number = number;
     }
     deleteAll(){
-        this.input.value = "";
+        this.first_number = 0;
+        this.displayResult();
     }
     backSpace(){
         let number = this.input.value;
@@ -51,37 +37,56 @@ class Calculator{
         this.input.value = back_space;
     }
     displayResult(){
-        this.calculateFunc(this.operator);
-        const number_result = this.thousandFormat(this.first_number);
-        result.innerHTML = number_result;
+        let number_result = this.first_number.toString();
+        if (number_result.length > 15){
+            result.innerHTML = Math.pow(this.first_number, 10);
+        }else {
+            result.innerHTML = number_result;
+        }
         this.input.value = "";
     }
-    calculateFunc(operator){
+    calculateFunc(){
         let result = 0
-        switch(operator)
+        switch(this.operator)
         {
             case "+":
                 result = this.first_number + this.second_number;
-                break
+                break;
             case "-":
                 result = this.first_number - this.second_number;
-                break
+                break;
             case "*":
                 result = this.first_number * this.second_number;
-                break
+                break;
             case "/":
                 result = this.first_number / this.second_number;
-                break
+                break;
+            case "%":
+                result = (this.first_number / 100) * this.second_number;
+                break;
             default:
-                break
+                break;
         }
         this.first_number = result;
     }
     calcFunction(calc){
+        if (this.first_number == 0 && this.second_number !== ""){
+            this.first_number = this.second_number;
+            this.history = [];
+            this.history.push(`${this.second_number} ${calc} `);
+        }else{
+            this.history[0] += `${this.second_number}${calc ? ' ' + calc + ' ' : ''}`;
+            this.calculateFunc();
+        }
         this.operator = calc;
-        this.first_number = this.second_number;
+        this.displayResult();
+        this.second_number = "";
         this.input.value = "";
-        this.second_number = 0;
+    }
+    saveToSession(){
+        let name = `item_${this.index_history}`
+        sessionStorage.setItem(name, this.history);
+        this.index_history += 1;
     }
 }
 
@@ -93,6 +98,8 @@ const btn_calculation = document.getElementsByClassName("button__calculation");
 const del_all = document.getElementById("delete-all");
 const del_left = document.getElementById("back-space");
 const btn_result = document.getElementById("button-result");
+const btn_history = document.getElementById("button-history");
+let first_input = true;
 
 // Initialization Class
 const input_num = document.getElementById("number");
@@ -127,13 +134,6 @@ del_all.addEventListener("click", ()=>{
 })
 
 /**
- * @Function Result Button
- */
-btn_result.addEventListener("click", ()=>{
-    number_val.displayResult();
-})
-
-/**
  * @Function Back Space Button
  */
 del_left.addEventListener("click", ()=>{
@@ -145,7 +145,32 @@ del_left.addEventListener("click", ()=>{
  */
 for (let calc = 0; calc < btn_calculation.length; calc++){
     btn_calculation[calc].addEventListener("click", ()=>{
+        if (!first_input){
+            number_val.first_number = 0;
+            first_input = true;
+        }
         let operator = btn_calculation[calc].getAttribute("data-btn");
+        // number_val.operator = operator;
         number_val.calcFunction(operator);
+        // if (number_val.first_number !== 0){
+        //     number_val.second_number
+        // }
     })
 }
+
+/**
+ * @Function Get Total
+ */
+btn_result.addEventListener("click", ()=>{
+    number_val.calcFunction();
+    number_val.displayResult();
+    number_val.history.push(number_val.first_number);
+    number_val.saveToSession();
+    first_input = false;
+})
+
+btn_history.addEventListener("click", ()=>{
+    for (let i = 0; i < number_val.index_history; i++){
+        console.log(sessionStorage.getItem(`item_${i}`));
+    }
+})

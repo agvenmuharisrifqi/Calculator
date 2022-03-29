@@ -48,7 +48,7 @@
       </div>
       <ul id="navbar-list" class="navbar__list">
         <li class="navbar__item active">
-          <a href=" #standard">
+          <a href="#standard">
             <i class="fa-solid fa-calculator"></i>
             <span>Standard</span>
           </a>
@@ -82,12 +82,13 @@
   <main id="main-content" class="main__content">
     <section class="content__item calculator__content active">
       <div class="calculator__wrapper">
+        <div class="history__calculator" title="History" id="button-history">
+          <i class="fa-solid fa-clock-rotate-left"></i>
+        </div>
         <div class="input__wrapper">
           <div class="result__wrapper">
-            <p>Result</p>
-            <h1 id="result" class="result" draggable="true">
-              0
-            </h1>
+            <h2 class="result">=</h2>
+            <h2 id="result" class="result">0</h2>
           </div>
           <input type="text" class="number" name="number" id="number" maxlength="13" onblur="this.focus();">
         </div>
@@ -128,12 +129,15 @@
           </p>
         </div>
         <div class="button__wrapper">
-          <p class="button__persegi button__normal">,</p>
+          <p class="button__persegi button__normal">.</p>
           <p class="button__persegi panjang button__normal">0</p>
           <p id="button-result" class="button__persegi button__function">
             <i class="fa-solid fa-equals"></i>
           </p>
         </div>
+      </div>
+      <div class="history__calculator">
+
       </div>
     </section>
     <section class="content__item bmi__content">
