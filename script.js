@@ -27,8 +27,11 @@ for (let item = 0; item < navItem.length; item++) {
 
 function windowWidth(){
     if (window.innerWidth < 992){
+        document.getElementById("number").disabled = true;
         nav.classList.add("active");
     }else {
+        document.getElementById("number").disabled = false;
+        document.getElementById("number").focus();
         nav.classList.remove("active");  
     }
 }
