@@ -22,8 +22,6 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Lobster&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
     rel="stylesheet">
-  <!-- <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Roboto:wght@400;500;700;900&display=swap"
-    rel="stylesheet"> -->
 
   <!-- Style Website -->
   <link rel="stylesheet" href="style.css" />
@@ -82,7 +80,7 @@
   <main id="main-content" class="main__content">
     <section class="content__item calculator__content active">
       <div class="calculator__wrapper">
-        <div class="history__calculator" title="History" id="button-history">
+        <div class="history__button" title="History" id="button-history">
           <i class="fa-solid fa-clock-rotate-left"></i>
         </div>
         <div class="input__wrapper">
@@ -93,14 +91,14 @@
           <input type="text" class="number" name="number" id="number" maxlength="13" onblur="this.focus();">
         </div>
         <div class="button__wrapper">
-          <p class="button__persegi button__function">MC</p>
+          <p id="memory-clear" class="button__persegi button__function">MC</p>
           <p id="delete-all" class="button__persegi panjang button__function">AC</p>
           <p id="back-space" class="button__persegi panjang button__function">
             <i class="fa-solid fa-delete-left"></i>
           </p>
         </div>
         <div class="button__wrapper">
-          <p class="button__persegi button__function">
+          <p class="button__persegi button__function button__advance" data-adv="+/-">
             <i class="fa-solid fa-plus-minus"></i>
           </p>
           <p class="button__persegi button__normal">1</p>
@@ -111,7 +109,7 @@
           </p>
         </div>
         <div class="button__wrapper">
-          <p class="button__persegi button__function">
+          <p class="button__persegi button__function button__advance" data-adv="√x">
             <i class="fa-solid fa-square-root-variable"></i>
           </p>
           <p class="button__persegi button__normal">4</p>
@@ -122,7 +120,7 @@
           </p>
         </div>
         <div class="button__wrapper">
-          <p id="button-percent" class="button__persegi button__function">
+          <p class="button__persegi button__function button__advance" data-adv="%">
             <i class="fa-solid fa-percent"></i>
           </p>
           <p class="button__persegi button__normal">7</p>
@@ -142,9 +140,12 @@
             <i class="fa-solid fa-plus"></i>
           </p>
         </div>
-      </div>
-      <div class="history__calculator">
-
+        <div id="calculator-history" class="history__calculator">
+          <p id="blank-history" class="history__blank">
+            Hitungan dan hasil Anda akan ditampilkan disini, Anda dapat menggunakan hasil tersebut kembali.
+          </p>
+          <!-- <p class="history__item"><span>10 * 10 * 10 * 10 * 10</span> = <span class="history__result">1000</span></p> -->
+        </div>
       </div>
     </section>
     <section class="content__item bmi__content">

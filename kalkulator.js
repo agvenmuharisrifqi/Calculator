@@ -9,6 +9,7 @@ class Calculator{
         this.first_number = 0;
         this.operator = "";
         this.second_number = "";
+        this.history_data = {};
         this.history = [];
         this.index_history = 0;
     }
@@ -80,10 +81,29 @@ class Calculator{
         this.second_number = "";
         this.input.value = "";
     }
-    saveToSession(){
-        let name = `item_${this.index_history}`
-        sessionStorage.setItem(name, this.history);
+    advanceCalculation(symbol){
+        let result = 0;
+        switch(symbol)
+        {
+            case "%":
+                result = this.second_number / 100;
+                break;
+            case "+/-":
+                result = this.second_number * -1;
+                break;
+            case "√x":
+                result = Math.sqrt(this.second_number);
+                break;
+            default:
+                break;
+        }
+        return result;
+    }
+    saveToSession(nm){
+        let name = nm.toString();
+        this.history_data[name] = this.history;
         this.index_history += 1;
+        this.history = [];
     }
 }
 
@@ -92,11 +112,14 @@ class Calculator{
  */
 const btn_normal = document.getElementsByClassName("button__normal");
 const btn_calculation = document.getElementsByClassName("button__calculation");
-const btn_percent = document.getElementById("button-percent");
+const btn_advance = document.getElementsByClassName("button__advance");
 const del_all = document.getElementById("delete-all");
 const del_left = document.getElementById("back-space");
+const del_memory = document.getElementById("memory-clear"); 
 const btn_result = document.getElementById("button-result");
 const btn_history = document.getElementById("button-history");
+const history_wrap = document.getElementById("calculator-history");
+const history_blank = document.getElementById("blank-history");
 let first_input = true;
 let calc_button = true;
 
@@ -111,6 +134,7 @@ const number_val = new Calculator(input_num, result);
 input_num.addEventListener('keyup', ()=>{
     let number = input_num.value;
     number_val.addNumberToInput(number);
+    calc_button = true;
 })
 
 /**
@@ -167,23 +191,55 @@ for (let calc = 0; calc < btn_calculation.length; calc++){
 btn_result.addEventListener("click", ()=>{
     number_val.calcFunction();
     number_val.displayResult();
-    number_val.history.push(number_val.first_number);
-    number_val.saveToSession();
+    number_val.saveToSession(number_val.first_number);
     first_input = false;
 })
 
-btn_history.addEventListener("click", ()=>{
-    for (let i = 0; i < number_val.index_history; i++){
-        console.log(sessionStorage.getItem(`item_${i}`));
-    }
+/**
+ * @Function Advance Button
+ */
+for (let adv = 0; adv < btn_advance.length; adv++){
+    btn_advance[adv].addEventListener("click", ()=>{
+        if(number_val.second_number !== ""){
+            let data_adv = btn_advance[adv].getAttribute("data-adv");
+            let number = number_val.advanceCalculation(data_adv);
+            number_val.addNumberToInput(number);
+        }
+    })
+}
+
+/**
+ * @Function Memory Clear
+ */
+del_memory.addEventListener("click", ()=>{
+    number_val.history_data = {};
+    number_val.deleteAll();
+    number_val.index_history = 0;
 })
 
 /**
- * @Function Percent Button
+ * @Function History Button
  */
-btn_percent.addEventListener("click", ()=>{
-    if(number_val.second_number !== ""){
-        let number = number_val.second_number / 100;
-        number_val.addNumberToInput(number);
+function createHistory(key, value){
+    let paragraph = document.createElement("p");
+    let span1 = document.createElement("span");
+    let span2 = document.createElement("span");
+    span1.classList.add("history__item");
+    span2.classList.add("history__result");
+    span1.appendChild(document.createTextNode(value));
+    span2.appendChild(document.createTextNode(key));
+    paragraph.appendChild(span1);
+    paragraph.appendChild(document.createTextNode(" = "));
+    paragraph.appendChild(span2);
+    history_wrap.appendChild(paragraph);
+}
+btn_history.addEventListener("click", ()=>{
+    btn_history.classList.toggle("active");
+    if (number_val.index_history > 0){
+        Object.entries(number_val.history_data).forEach(([key, value])=>{
+            createHistory(key, value);
+        })
+    }else{
+        history_blank.style.display = "block";
     }
 })

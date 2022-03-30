@@ -245,6 +245,7 @@ Navbar Active
 }
 
 .calculator__wrapper {
+  position: relative;
   background: rgb(255, 255, 255);
   background: -moz-linear-gradient(135deg, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.17) 100%);
   background: -webkit-linear-gradient(135deg, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.17) 100%);
@@ -259,15 +260,16 @@ Navbar Active
   box-shadow: 25px 25px 50px rgba(115, 253, 255, 1);
 }
 
-.calculator__wrapper .history__calculator {
+.calculator__wrapper .history__button {
   width: 100%;
   text-align: right;
   cursor: pointer;
   color: #000;
+  z-index: 10;
 }
 
-.history__calculator:hover i {
-  color: #16507B;
+.history__button:hover i {
+  color: #0091ff;
 }
 
 .calculator__wrapper .button__persegi {
@@ -281,11 +283,12 @@ Navbar Active
   margin: 3px;
   background-color: rgba(255, 255, 255, .8);
   border-radius: 10px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, .15);
 }
 
 .calculator__wrapper .button__persegi:hover {
-  color: #73FDFF;
-  opacity: .9;
+  color: #00d1d4;
+  box-shadow: 0 0 5px rgba(0, 0, 0, .4);
 }
 
 .button__wrapper {
@@ -370,12 +373,69 @@ Navbar Active
   box-shadow: 0 0 5px rgba(0, 0, 0, .1);
 }
 
+.history__calculator {
+  position: absolute;
+  display: none;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: white;
+  padding: 60px 30px 30px;
+  border-radius: 15px;
+  overflow: auto;
+  animation: animate-history 1s ease;
+  transition: all 1s ease;
+}
+
+.history__calculator .history__blank {
+  color: #525252;
+  text-align: center;
+  display: none;
+}
+
+.history__calculator .history__item {
+  color: #000;
+  font-size: 16px;
+  margin: 10px 0;
+}
+
+.history__calculator .history__result {
+  background-color: #e0e0e0;
+  padding: 5px 8px;
+  border: 1px solid #999999;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.history__result:hover {
+  background-color: #f1f1f1;
+}
+
+@keyframes animate-history {
+  0% {
+    right: 100%;
+    bottom: 100%;
+    overflow: hidden;
+  }
+
+  100% {
+    right: 0;
+    bottom: 0;
+    overflow: auto;
+  }
+}
+
 /****************
 Calculator Active
 ****************/
 .calculator__content.active {
   display: flex;
   animation: AppearSide 1s ease-in;
+}
+
+.history__button.active~.history__calculator {
+  display: block;
 }
 
 /*********************
