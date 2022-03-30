@@ -9,7 +9,7 @@ class Calculator{
         this.first_number = 0;
         this.operator = "";
         this.second_number = "";
-        this.history_data = {};
+        this.history_data = new Object();
         this.history = [];
         this.index_history = 0;
     }
@@ -105,6 +105,22 @@ class Calculator{
         this.index_history += 1;
         this.history = [];
     }
+    createHistory(key, value){
+        let division = document.createElement("div");
+        let paragraph = document.createElement("p");
+        let span1 = document.createElement("span");
+        let span2 = document.createElement("span");
+        division.setAttribute("id", "history-wrapper");
+        span1.classList.add("history__item");
+        span2.classList.add("history__result");
+        span1.appendChild(document.createTextNode(value));
+        span2.appendChild(document.createTextNode(key));
+        paragraph.appendChild(span1);
+        paragraph.appendChild(document.createTextNode(" = "));
+        paragraph.appendChild(span2);
+        division.appendChild(paragraph)
+        history_wrap.appendChild(division);
+    }
 }
 
 /**
@@ -122,6 +138,7 @@ const history_wrap = document.getElementById("calculator-history");
 const history_blank = document.getElementById("blank-history");
 let first_input = true;
 let calc_button = true;
+let history_button = true;
 
 // Initialization Class
 const input_num = document.getElementById("number");
@@ -189,6 +206,9 @@ for (let calc = 0; calc < btn_calculation.length; calc++){
  * @Function Get Total
  */
 btn_result.addEventListener("click", ()=>{
+    for(let calcActive = 0; calcActive < btn_calculation.length; calcActive++){
+        btn_calculation[calcActive].className = btn_calculation[calcActive].className.replace(" active", "");
+    }
     number_val.calcFunction();
     number_val.displayResult();
     number_val.saveToSession(number_val.first_number);
@@ -220,26 +240,24 @@ del_memory.addEventListener("click", ()=>{
 /**
  * @Function History Button
  */
-function createHistory(key, value){
-    let paragraph = document.createElement("p");
-    let span1 = document.createElement("span");
-    let span2 = document.createElement("span");
-    span1.classList.add("history__item");
-    span2.classList.add("history__result");
-    span1.appendChild(document.createTextNode(value));
-    span2.appendChild(document.createTextNode(key));
-    paragraph.appendChild(span1);
-    paragraph.appendChild(document.createTextNode(" = "));
-    paragraph.appendChild(span2);
-    history_wrap.appendChild(paragraph);
-}
 btn_history.addEventListener("click", ()=>{
-    btn_history.classList.toggle("active");
-    if (number_val.index_history > 0){
-        Object.entries(number_val.history_data).forEach(([key, value])=>{
-            createHistory(key, value);
-        })
+    console.log(history_button)
+    if (history_button == true){
+        btn_history.classList.add("active");
+        if (number_val.index_history > 0){
+            Object.entries(number_val.history_data).forEach(([key, value])=>{
+                number_val.createHistory(key, value);
+            })
+            history_blank.style.display = "none";
+        }else{
+            history_blank.style.display = "block";
+        }
+        history_button = false;
     }else{
-        history_blank.style.display = "block";
+        if (number_val.index_history > 0){
+            document.getElementById("history-wrapper").remove();
+        }
+        btn_history.classList.remove("active");
+        history_button = true;
     }
 })
