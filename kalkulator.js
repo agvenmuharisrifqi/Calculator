@@ -13,7 +13,7 @@ class Calculator{
         this.index_history = 0;
     }
     addNumberToInput(number){
-        let num = number.toString().replace(/[^\.\d]/gm, '');
+        let num = number.toString().replace(/[^\-\.\d]/gm, '');
         this.input.value = num;
         this.updateNumber(num);
     }
@@ -98,6 +98,7 @@ const del_left = document.getElementById("back-space");
 const btn_result = document.getElementById("button-result");
 const btn_history = document.getElementById("button-history");
 let first_input = true;
+let calc_button = true;
 
 // Initialization Class
 const input_num = document.getElementById("number");
@@ -120,6 +121,7 @@ for(let btnN = 0; btnN < btn_normal.length; btnN++){
         let number = input_num.value + event.target.innerHTML;
         if (input_num.value.length < 13){
             number_val.addNumberToInput(number);
+            calc_button = true;
         }
     })
 }
@@ -147,12 +149,15 @@ for (let calc = 0; calc < btn_calculation.length; calc++){
             number_val.first_number = 0;
             first_input = true;
         }
-        let operator = btn_calculation[calc].getAttribute("data-btn");
-        // number_val.operator = operator;
-        number_val.calcFunction(operator);
-        // if (number_val.first_number !== 0){
-        //     number_val.second_number
-        // }
+        if (calc_button){
+            for(let calcActive = 0; calcActive < btn_calculation.length; calcActive++){
+                btn_calculation[calcActive].className = btn_calculation[calcActive].className.replace(" active", "");
+            }
+            btn_calculation[calc].classList.add("active");
+            let operator = btn_calculation[calc].getAttribute("data-btn");
+            number_val.calcFunction(operator);
+            calc_button = false;
+        }
     })
 }
 

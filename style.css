@@ -304,6 +304,10 @@ Navbar Active
   color: #64b6b8;
 }
 
+.button__function.active {
+  color: #73FDFF;
+}
+
 .input__wrapper {
   width: calc(60px * 4 + 3px * 8);
   display: flex;
