@@ -13,12 +13,12 @@ class Calculator{
         this.index_history = 0;
     }
     addNumberToInput(number){
-        let num = number.replace(/^0|^\./gm, '');
+        let num = number.toString().replace(/[^\.\d]/gm, '');
         this.input.value = num;
         this.updateNumber(num);
     }
     updateNumber(number_recent){
-        let number = number_recent.split(',').join('');
+        let number = number_recent;
         let number_check = number.match(/./gm);
         if (number_check){
             number = parseFloat(number);
@@ -61,9 +61,6 @@ class Calculator{
             case "/":
                 result = this.first_number / this.second_number;
                 break;
-            case "%":
-                result = (this.first_number / 100) * this.second_number;
-                break;
             default:
                 break;
         }
@@ -95,6 +92,7 @@ class Calculator{
  */
 const btn_normal = document.getElementsByClassName("button__normal");
 const btn_calculation = document.getElementsByClassName("button__calculation");
+const btn_percent = document.getElementById("button-percent");
 const del_all = document.getElementById("delete-all");
 const del_left = document.getElementById("back-space");
 const btn_result = document.getElementById("button-result");
@@ -172,5 +170,15 @@ btn_result.addEventListener("click", ()=>{
 btn_history.addEventListener("click", ()=>{
     for (let i = 0; i < number_val.index_history; i++){
         console.log(sessionStorage.getItem(`item_${i}`));
+    }
+})
+
+/**
+ * @Function Percent Button
+ */
+btn_percent.addEventListener("click", ()=>{
+    if(number_val.second_number !== ""){
+        let number = number_val.second_number / 100;
+        number_val.addNumberToInput(number);
     }
 })
