@@ -39,11 +39,13 @@ class Calculator{
         this.input.value = back_space;
     }
     displayResult(){
-        let number_result = this.first_number.toString();
-        if (number_result.length >= 12){
+        let number_check = this.first_number.toString();
+        if (number_check.match(/\./g)){
+            result.innerHTML = this.first_number.toFixed(9);
+        }else if (number_check.length >= 12){
             result.innerHTML = Math.pow(this.first_number, 10);
         }else {
-            result.innerHTML = number_result;
+            result.innerHTML = this.first_number;
         }
         this.input.value = "";
     }
