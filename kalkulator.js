@@ -28,27 +28,6 @@ class Calculator{
         }
         this.second_number = number;
     }
-    deleteAll(){
-        this.first_number = 0;
-        this.second_number = "";
-        this.displayResult();
-    }
-    backSpace(){
-        let number = this.input.value;
-        let back_space = number.substr(0, number.length - 1);
-        this.input.value = back_space;
-    }
-    displayResult(){
-        let number_check = this.first_number.toString();
-        if (number_check.match(/\./g)){
-            result.innerHTML = this.first_number.toFixed(9);
-        }else if (number_check.length >= 12){
-            result.innerHTML = Math.pow(this.first_number, 10);
-        }else {
-            result.innerHTML = this.first_number;
-        }
-        this.input.value = "";
-    }
     calculateFunc(){
         let result = 0
         switch(this.operator)
@@ -103,6 +82,17 @@ class Calculator{
         }
         return result;
     }
+    displayResult(){
+        let number_check = this.first_number.toString();
+        if (number_check.match(/\./g)){
+            result.innerHTML = this.first_number.toFixed(9);
+        }else if (number_check.length >= 12){
+            result.innerHTML = Math.pow(this.first_number, 10);
+        }else {
+            result.innerHTML = this.first_number;
+        }
+        this.input.value = "";
+    }
     saveToSession(nm){
         let name = nm.toString();
         this.history_data[name] = this.history;
@@ -126,11 +116,31 @@ class Calculator{
         division.appendChild(paragraph)
         history_wrap.appendChild(division);
     }
+    backSpace(){
+        let number = this.input.value;
+        let back_space = number.substr(0, number.length - 1);
+        this.input.value = back_space;
+    }
+    deleteAll(){
+        this.first_number = 0;
+        this.second_number = "";
+        this.displayResult();
+    }
+    deleteClass(cls, elem){
+        for(let clsActive = 0; clsActive < elem.length; clsActive++){
+            elem[clsActive].className = elem[clsActive].className.replace(cls, "");
+        }
+    }
 }
 
 /**
  * @Variable_In_Calculator
  */
+// Initialization Class
+const input_num = document.getElementById("number");
+const result = document.getElementById("result");
+const number_val = new Calculator(input_num, result);
+
 const btn_normal = document.getElementsByClassName("button__normal");
 const btn_calculation = document.getElementsByClassName("button__calculation");
 const btn_advance = document.getElementsByClassName("button__advance");
@@ -144,11 +154,6 @@ const history_blank = document.getElementById("blank-history");
 let first_input = true;
 let calc_button = true;
 let history_button = true;
-
-// Initialization Class
-const input_num = document.getElementById("number");
-const result = document.getElementById("result");
-const number_val = new Calculator(input_num, result);
 
 /**
  * @Function Input With Keyboard
@@ -176,9 +181,7 @@ for(let btnN = 0; btnN < btn_normal.length; btnN++){
  * @Function Delete All Button
  */
 del_all.addEventListener("click", ()=>{
-    for(let calcActive = 0; calcActive < btn_calculation.length; calcActive++){
-        btn_calculation[calcActive].className = btn_calculation[calcActive].className.replace(" active", "");
-    }
+    number_val.deleteClass(" active", btn_calculation);
     number_val.deleteAll();
 })
 
@@ -199,9 +202,7 @@ for (let calc = 0; calc < btn_calculation.length; calc++){
             first_input = true;
         }
         if (calc_button){
-            for(let calcActive = 0; calcActive < btn_calculation.length; calcActive++){
-                btn_calculation[calcActive].className = btn_calculation[calcActive].className.replace(" active", "");
-            }
+            number_val.deleteClass(" active", btn_calculation);
             btn_calculation[calc].classList.add("active");
             let operator = btn_calculation[calc].getAttribute("data-btn");
             number_val.calcFunction(operator);
@@ -214,9 +215,7 @@ for (let calc = 0; calc < btn_calculation.length; calc++){
  * @Function Get Total
  */
 btn_result.addEventListener("click", ()=>{
-    for(let calcActive = 0; calcActive < btn_calculation.length; calcActive++){
-        btn_calculation[calcActive].className = btn_calculation[calcActive].className.replace(" active", "");
-    }
+    number_val.deleteClass(" active", btn_calculation);
     number_val.calcFunction();
     number_val.displayResult();
     number_val.saveToSession(number_val.first_number);
@@ -240,9 +239,7 @@ for (let adv = 0; adv < btn_advance.length; adv++){
  * @Function Memory Clear
  */
 del_memory.addEventListener("click", ()=>{
-    for(let calcActive = 0; calcActive < btn_calculation.length; calcActive++){
-        btn_calculation[calcActive].className = btn_calculation[calcActive].className.replace(" active", "");
-    }
+    number_val.deleteClass(" active", btn_calculation);
     number_val.history_data = {};
     number_val.deleteAll();
     number_val.index_history = 0;

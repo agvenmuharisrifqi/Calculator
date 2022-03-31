@@ -153,9 +153,43 @@
           </p>
         </div>
       </div>
+      <ul class="bg-bubbles">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
     </section>
     <section class="content__item bmi__content">
       <div class="bmi__wrapper">
+        <div class="bmi__input">
+          <label for="height-man">Height</label>
+          <div>
+            <input class="bmi__item__input" type="text" name="height-man" id="height-man">
+            <select class="bmi__item__select" name="select-height" id="select-height">
+              <option value="centimeter" selected>Centimeter</option>
+              <option value="meter">Meter</option>
+              <option value="inch">Inch</option>
+              <option value="foot">Foot</option>
+            </select>
+          </div>
+        </div>
+        <div class="bmi__input">
+          <label for="weight-man">Weight</label>
+          <div>
+            <input class="bmi__item__input" type="text" name="weight-man" id="weight-man">
+            <select class="bmi__item__select" name="select-weight" id="select-weight">
+              <option value="kilogram" selected>Kilogram</option>
+              <option value="pon">Pon</option>
+            </select>
+          </div>
+        </div>
         <hr class="divider">
         <div class="button__wrapper">
           <p class="button__persegi">1</p>
@@ -193,7 +227,6 @@
   <!-- Script Website -->
   <script src="script.js"></script>
   <script src="kalkulator.js"></script>
-
   <!-- Script Font Awesome -->
   <script src="https://kit.fontawesome.com/69f952805c.js" crossorigin="anonymous"></script>
 </body>
