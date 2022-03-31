@@ -240,7 +240,7 @@ Navbar Active
  Main Style **********
 *********************/
 
-.calculator__wrapper, .bmi__wrapper {
+.calculator__wrapper, .bmi__wrapper, .temperature__wrapper {
   position: relative;
   background-color: rgba(255, 255, 255, .3);
   border: 1px solid rgba(255, 255, 255, .6);
@@ -252,6 +252,62 @@ Navbar Active
   justify-content: center;
   box-shadow: 0px 0px 5px rgba(255, 255, 255, .6);
   z-index: 5;
+}
+
+.calculator__wrapper .button__persegi,.bmi__wrapper .button__persegi, .temperature__wrapper .button__persegi  {
+  font-family: var(--heading);
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: 700;
+  text-align: center;
+  width: 60px;
+  padding: 10px 0;
+  margin: 3px;
+  background-color: rgba(255, 255, 255, 1);
+  border-radius: 3px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, .1);
+}
+
+.bmi__wrapper .bmi__input, .temperature__wrapper .temperature__input {
+  margin: 5px 0;
+  width: 100%;
+}
+
+.bmi__input label, .temperature__input label {
+  color: #fff;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.bmi__input div, .temperature__input div {
+  margin-top: 5px;
+}
+
+.bmi__input .bmi__item__input, .temperature__input .temperature__item__input {
+  color: #000;
+  font-family: var(--body);
+  padding: 10px 5px;
+  width: 100%;
+  text-align: right;
+  font-size: 20px;
+  font-weight: 500;
+  background: rgb(255,255,255,.6);
+  border-radius: 5px;
+  border: 1px solid rgba(255, 255, 255, .6);
+}
+
+.bmi__input .bmi__item__select, .temperature__input .temperature__item__select {
+  background-color: transparent;
+  border: none;
+  float: right;
+  color: #fff;
+}
+.bmi__input .bmi__item__select option, .temperature__input .temperature__item__select option {
+  color: #000;
+}
+
+.bmi__input .bmi__item__select:focus, .temperature__input .temperature__item__select:focus  {
+  outline: none;
 }
 
 /*********************
@@ -282,37 +338,11 @@ Navbar Active
   color: #0091ff;
 }
 
-.calculator__wrapper .button__persegi,.bmi__wrapper .button__persegi  {
-  font-family: var(--heading);
-  cursor: pointer;
-  font-size: 20px;
-  font-weight: 700;
-  text-align: center;
-  width: 60px;
-  padding: 10px 0;
-  margin: 3px;
-  background-color: rgba(255, 255, 255, 1);
-  border-radius: 3px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, .1);
-}
-
 .calculator__wrapper .button__persegi:hover {
   box-shadow: 0 2px 5px rgba(0, 0, 0, .5);
   color: #fff;
   background-color: #50a3a2;
   animation: close-shadow .3s linear;
-}
-@keyframes close-shadow {
-  0% {
-    background-color: #fff;
-    box-shadow: inset -1px 0 0 0 #50a3a2, inset 1px 0 0 0 #50a3a2;
-    color: #50a3a2;
-  }
-  100% {
-    background-color: #50a3a2;
-    box-shadow: inset -60px 0 0 0 #50a3a2, inset 60px 0 0 0 #50a3a2;
-    color: #fff;
-  }
 }
 
 .button__wrapper {
@@ -336,19 +366,6 @@ Navbar Active
   color: #fff;
   background-color: #50a3a2;
   animation: offset-shadow .5s linear;
-}
-
-@keyframes offset-shadow {
-  0% {
-    box-shadow: inset 0 0 0 0 #50a3a2; 
-    color: #50a3a2;
-    background-color: #fff;
-  }
-  100% {
-    color: #fff;
-    background-color: #50a3a2;
-    box-shadow: inset 120px 60px 0 0 #50a3a2;
-  }
 }
 
 .input__wrapper {
@@ -480,48 +497,6 @@ Calculator Active
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#000221",endColorstr="#000221",GradientType=1);
 }
 
-.bmi__wrapper .bmi__input {
-  margin: 5px 0;
-  width: 100%;
-}
-
-.bmi__input label {
-  color: #fff;
-  font-size: 20px;
-  font-weight: 700;
-}
-
-.bmi__input div {
-  margin-top: 5px;
-}
-
-.bmi__input .bmi__item__input {
-  color: #000;
-  font-family: var(--body);
-  padding: 10px 5px;
-  width: 100%;
-  text-align: right;
-  font-size: 20px;
-  font-weight: 500;
-  background: rgb(255,255,255,.6);
-  border-radius: 5px;
-  border: 1px solid rgba(255, 255, 255, .6);
-}
-
-.bmi__input .bmi__item__select {
-  background-color: transparent;
-  border: none;
-  float: right;
-  color: #fff;
-}
-.bmi__input .bmi__item__select option {
-  color: #000;
-}
-
-.bmi__input .bmi__item__select:focus {
-  outline: none;
-}
-
 .bmi__wrapper .button__wrapper .button__persegi {
   color: rgb(0,2,33);
 }
@@ -548,7 +523,9 @@ BMI Active
   display: none;
   justify-content: center;
   align-items: center;
-  background-color: #daffe0;
+  background: #ee0979;
+  background: -webkit-linear-gradient(to right, #ff6a00, #ee0979);
+  background: linear-gradient(to right, #ff6a00, #ee0979);
 }
 
 /*****************
@@ -673,5 +650,31 @@ Temperature Active
     right: 0;
     bottom: 0;
     overflow: auto;
+  }
+}
+
+@keyframes close-shadow {
+  0% {
+    background-color: #fff;
+    box-shadow: inset -1px 0 0 0 #50a3a2, inset 1px 0 0 0 #50a3a2;
+    color: #50a3a2;
+  }
+  100% {
+    background-color: #50a3a2;
+    box-shadow: inset -60px 0 0 0 #50a3a2, inset 60px 0 0 0 #50a3a2;
+    color: #fff;
+  }
+}
+
+@keyframes offset-shadow {
+  0% {
+    box-shadow: inset 0 0 0 0 #50a3a2; 
+    color: #50a3a2;
+    background-color: #fff;
+  }
+  100% {
+    color: #fff;
+    background-color: #50a3a2;
+    box-shadow: inset 120px 60px 0 0 #50a3a2;
   }
 }
