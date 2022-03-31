@@ -528,6 +528,28 @@ BMI Active
   background: linear-gradient(to right, #ff6a00, #ee0979);
 }
 
+.temperature__wrapper .button__wrapper .button__persegi {
+  color: rgb(238, 9, 121);
+}
+
+.temperature__wrapper .button__wrapper .button__persegi:hover {
+  background-color: #ee0979;
+  color: #fff;
+  animation: slide-right-shadow .5s ease-in-out;
+}
+
+@keyframes slide-right-shadow {
+  0% {
+    box-shadow: inset 0 0 0 0 #ee0979; 
+    color: #ee0979;
+    background-color: #fff;
+  }
+  100% {
+    color: #fff;
+    background-color: #ee0979;
+    box-shadow: inset 60px 0 0 0 #ee0979;
+  }
+}
 /*****************
 Temperature Active
 *****************/
