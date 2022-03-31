@@ -39,7 +39,7 @@ class Calculator{
     }
     displayResult(){
         let number_result = this.first_number.toString();
-        if (number_result.length > 15){
+        if (number_result.length >= 12){
             result.innerHTML = Math.pow(this.first_number, 10);
         }else {
             result.innerHTML = number_result;
@@ -59,7 +59,7 @@ class Calculator{
             case "*":
                 result = this.first_number * this.second_number;
                 break;
-            case "/":
+            case "÷":
                 result = this.first_number / this.second_number;
                 break;
             default:
@@ -68,6 +68,7 @@ class Calculator{
         this.first_number = result;
     }
     calcFunction(calc){
+        this.second_number = this.second_number ? this.second_number : "0";
         if (this.first_number == 0 && this.second_number !== ""){
             this.first_number = this.second_number;
             this.history = [];
@@ -106,6 +107,7 @@ class Calculator{
         this.history = [];
     }
     createHistory(key, value){
+        let data = value[0].replace(/\*/gmi, 'x').replace(/undefined/gmi, '');
         let division = document.createElement("div");
         let paragraph = document.createElement("p");
         let span1 = document.createElement("span");
@@ -113,7 +115,7 @@ class Calculator{
         division.setAttribute("id", "history-wrapper");
         span1.classList.add("history__item");
         span2.classList.add("history__result");
-        span1.appendChild(document.createTextNode(value));
+        span1.appendChild(document.createTextNode(data));
         span2.appendChild(document.createTextNode(key));
         paragraph.appendChild(span1);
         paragraph.appendChild(document.createTextNode(" = "));
@@ -171,6 +173,9 @@ for(let btnN = 0; btnN < btn_normal.length; btnN++){
  * @Function Delete All Button
  */
 del_all.addEventListener("click", ()=>{
+    for(let calcActive = 0; calcActive < btn_calculation.length; calcActive++){
+        btn_calculation[calcActive].className = btn_calculation[calcActive].className.replace(" active", "");
+    }
     number_val.deleteAll();
 })
 
@@ -232,6 +237,9 @@ for (let adv = 0; adv < btn_advance.length; adv++){
  * @Function Memory Clear
  */
 del_memory.addEventListener("click", ()=>{
+    for(let calcActive = 0; calcActive < btn_calculation.length; calcActive++){
+        btn_calculation[calcActive].className = btn_calculation[calcActive].className.replace(" active", "");
+    }
     number_val.history_data = {};
     number_val.deleteAll();
     number_val.index_history = 0;
@@ -241,12 +249,20 @@ del_memory.addEventListener("click", ()=>{
  * @Function History Button
  */
 btn_history.addEventListener("click", ()=>{
-    console.log(history_button)
     if (history_button == true){
         btn_history.classList.add("active");
         if (number_val.index_history > 0){
             Object.entries(number_val.history_data).forEach(([key, value])=>{
                 number_val.createHistory(key, value);
+            })
+            let result_item = document.querySelectorAll(".history__result");
+            result_item.forEach((result)=>{
+                result.addEventListener("click", (event)=>{
+                    number_val.input.value = event.target.innerHTML;
+                    number_val.addNumberToInput(number_val.input.value);
+                    btn_history.classList.remove("active");
+                    history_button = true;
+                })
             })
             history_blank.style.display = "none";
         }else{
