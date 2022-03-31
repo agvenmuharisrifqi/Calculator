@@ -170,7 +170,7 @@ input_num.addEventListener('keyup', ()=>{
 for(let btnN = 0; btnN < btn_normal.length; btnN++){
     btn_normal[btnN].addEventListener("click", (event)=>{
         let number = input_num.value + event.target.innerHTML;
-        if (input_num.value.length < 13){
+        if (input_num.value.length <= 20){
             number_val.addNumberToInput(number);
             calc_button = true;
         }
