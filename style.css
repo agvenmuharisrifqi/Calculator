@@ -423,20 +423,6 @@ Navbar Active
   background-color: #f1f1f1;
 }
 
-@keyframes animate-history {
-  0% {
-    right: 100%;
-    bottom: 100%;
-    overflow: hidden;
-  }
-
-  100% {
-    right: 0;
-    bottom: 0;
-    overflow: auto;
-  }
-}
-
 /****************
 Calculator Active
 ****************/
@@ -533,7 +519,7 @@ Temperature Active
 .bg-bubbles {
   position: absolute;
   top: 0;
-  left: 0;
+  left: 60px;
   right: 0;
   bottom: 0;
   z-index: 1;
@@ -569,7 +555,7 @@ Temperature Active
   left: 40%;
   width: 30px;
   height: 30px;
-  /* animation-duration: 22s; */
+  animation-duration: 22s;
   background-color: rgba(255,255,255,0.25);
 }
 .bg-bubbles li:nth-child(5) {
@@ -592,7 +578,7 @@ Temperature Active
   left: 55%;
   width: 20px;
   height: 20px;
-  animation-delay: 15s;
+  /* animation-delay: 1s; */
   animation-duration: 25s;
 }
 .bg-bubbles li:nth-child(9) {
@@ -628,4 +614,18 @@ Temperature Active
   0% { transform: translateX(-100%); }
 
   100% { transform: translateX(0); }
+}
+
+@keyframes animate-history {
+  0% {
+    right: 100%;
+    bottom: 100%;
+    overflow: hidden;
+  }
+
+  100% {
+    right: 0;
+    bottom: 0;
+    overflow: auto;
+  }
 }
