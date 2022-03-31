@@ -459,26 +459,6 @@ BMI Active
 }
 
 /*********************
- Currency Style ******
-*********************/
-.currency__content {
-  padding-left: 60px;
-  height: 100vh;
-  display: none;
-  justify-content: center;
-  align-items: center;
-  background-color: #feffda;
-}
-
-/**************
-Currency Active
-**************/
-.currency__content.active {
-  display: flex;
-  animation: AppearSide 1s ease-in;
-}
-
-/*********************
  Temperature Style ***
 *********************/
 .temperature__content {
