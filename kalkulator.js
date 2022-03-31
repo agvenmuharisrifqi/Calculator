@@ -30,6 +30,7 @@ class Calculator{
     }
     deleteAll(){
         this.first_number = 0;
+        this.second_number = "";
         this.displayResult();
     }
     backSpace(){

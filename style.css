@@ -83,6 +83,14 @@ li {
   margin: auto;
 }
 
+.divider {
+  border: none;
+  height: 1px;
+  width: 100%;
+  border-top: 1px solid rgba(0,0,0,.15);
+  overflow: hidden;
+  margin: 10px 0;
+}
 
 /*********************
  Navbar Style ********
@@ -272,7 +280,7 @@ Navbar Active
   color: #0091ff;
 }
 
-.calculator__wrapper .button__persegi {
+.calculator__wrapper .button__persegi,.bmi__wrapper .button__persegi  {
   font-family: var(--heading);
   cursor: pointer;
   font-size: 20px;
