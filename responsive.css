@@ -5,13 +5,15 @@
     *********************/
     .calculator__content,
     .bmi__content ,
-    .temperature__content{
+    .temperature__content,
+    .bmi__info{
         padding-left: 400px;
     }
 
     .navbar.active~.main__content .calculator__content,
     .navbar.active~.main__content .bmi__content , 
-    .navbar.active~.main__content .temperature__content{
+    .navbar.active~.main__content .temperature__content,
+    .navbar.active~.main__content .bmi__info{
         padding-left: 60px;
     }
 }

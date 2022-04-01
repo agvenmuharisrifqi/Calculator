@@ -191,31 +191,59 @@
           </div>
         </div>
         <hr class="divider">
-        <div class="button__wrapper">
-          <p class="button__persegi">1</p>
-          <p class="button__persegi">2</p>
-          <p class="button__persegi">3</p>
-          <p class="button__persegi button__function">AC</p>
-        </div>
-        <div class="button__wrapper">
-          <p class="button__persegi">4</p>
-          <p class="button__persegi">5</p>
-          <p class="button__persegi">6</p>
-          <p class="button__persegi button__function">
-            <i class="fa-solid fa-delete-left"></i>
-          </p>
-        </div>
-        <div class="button__wrapper">
-          <p class="button__persegi">7</p>
-          <p class="button__persegi">8</p>
-          <p class="button__persegi">9</p>
-          <p class="button__persegi button__function">GO</p>
-        </div>
-        <div class="button__wrapper">
-          <p class="button__persegi panjang">.</p>
-          <p class="button__persegi panjang">0</p>
+        <p id="bmi-button" class="button__persegi">GO</p>
+      </div>
+      <div id="bmi-info" class="bmi__info">
+        <i id="button-close-info" class="btn__close fa-solid fa-x"></i>
+        <h5>Your Weight Is</h5>
+        <h2 id="bmi-status">Normal</h2>
+        <div class="info__status">
+          <div class="status__wrapper">
+            <div class="icon__status__wrapper">
+              <i class="fa-solid fa-person-circle-minus"></i>
+            </div>
+            <h4>Underweight</h4>
+            <div style="background-color: rgb(0, 225, 255);" class="status__bar"></div>
+          </div>
+          <div class="status__wrapper">
+            <div class="icon__status__wrapper">
+              <i class="fa-solid fa-person-circle-check"></i>
+            </div>
+            <h4>Normal</h4>
+            <div style="background-color: rgb(0, 255, 106);" class="status__bar"></div>
+          </div>
+          <div class="status__wrapper">
+            <div class="icon__status__wrapper">
+              <i class="fa-solid fa-person-circle-plus"></i>
+            </div>
+            <h4>Overweight</h4>
+            <div style="background-color: rgb(255, 166, 0);" class="status__bar"></div>
+          </div>
+          <div class="status__wrapper">
+            <div class="icon__status__wrapper">
+              <i class="fa-solid fa-person-circle-exclamation"></i>
+            </div>
+            <h4>Obesity</h4>
+            <div style="background-color: rgb(255, 0, 0);" class="status__bar"></div>
+          </div>
         </div>
       </div>
+      <ul class="bg-stars">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
     </section>
     <section class="content__item temperature__content">
       <div class="temperature__wrapper">
@@ -243,33 +271,6 @@
             </select>
           </div>
         </div>
-        <hr class="divider">
-        <div class="button__wrapper">
-          <p class="button__persegi">1</p>
-          <p class="button__persegi">2</p>
-          <p class="button__persegi">3</p>
-          <p class="button__persegi button__function">AC</p>
-        </div>
-        <div class="button__wrapper">
-          <p class="button__persegi">4</p>
-          <p class="button__persegi">5</p>
-          <p class="button__persegi">6</p>
-          <p class="button__persegi button__function">
-            <i class="fa-solid fa-delete-left"></i>
-          </p>
-        </div>
-        <div class="button__wrapper">
-          <p class="button__persegi">7</p>
-          <p class="button__persegi">8</p>
-          <p class="button__persegi">9</p>
-          <p class="button__persegi button__function">
-            <i class="fa-solid fa-plus-minus"></i>
-          </p>
-        </div>
-        <div class="button__wrapper">
-          <p class="button__persegi panjang">.</p>
-          <p class="button__persegi panjang">0</p>
-        </div>
       </div>
     </section>
   </main>
@@ -277,6 +278,7 @@
   <!-- Script Website -->
   <script src="script.js"></script>
   <script src="kalkulator.js"></script>
+  <script src="bmi.js"></script>
   <!-- Script Font Awesome -->
   <script src="https://kit.fontawesome.com/69f952805c.js" crossorigin="anonymous"></script>
 </body>
