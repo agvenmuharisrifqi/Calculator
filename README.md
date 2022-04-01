@@ -1,10 +1,8 @@
-
-
 # Website Kalkulator
 
 ## Kalkulator Standard
 
-![Tampilan Kalkulator Standard](https://photos.app.goo.gl/PqhmNXayuNXbLXt58)
+![Display Standard Calculator](https://raw.githubusercontent.com/agvenmuharisrifqi/Calculator/main/img/Standard%20Calculator.png)
 
 Kalkulator Standard dapat membantu anda dalam menghitung sehari-hariAlat untuk menghitung penjumlahan, pengurangan, perkalian, pembagian dan rumus matematika tertentu.
 **Fitur :** 
@@ -17,6 +15,9 @@ Kalkulator Standard dapat membantu anda dalam menghitung sehari-hariAlat untuk m
  7. All Clear (AC) : Untuk menghapus seluruh perhitungan anda yang terbaru
 
 ## Kalkulator BMI
+
+![Display BMI Calculator](https://raw.githubusercontent.com/agvenmuharisrifqi/Calculator/main/img/BMI%20Calculator.png)
+
 Kalkulator BMI dapat mengukur kelangsingan atau kegemukan seseorang berdasarkan tinggi dan berat badan mereka.
 
 **Cara Penggunaan**
@@ -27,9 +28,11 @@ Kalkulator BMI dapat mengukur kelangsingan atau kegemukan seseorang berdasarkan 
 
 ## Kalkulator Temperature
 
+![Display Temperature Calculator](https://raw.githubusercontent.com/agvenmuharisrifqi/Calculator/main/img/Temperature%20Calculator.png)
+
 *Comming Soon*
 
-Link : [https://agvenmuharisrifqi.github.io/Calculator/](https://agvenmuharisrifqi.github.io/Calculator/)
+Link For Website Kalkulator : [https://agvenmuharisrifqi.github.io/Calculator/](https://agvenmuharisrifqi.github.io/Calculator/)
 
 Thank you for viewing my repository, I hope you like it 😁
 
