@@ -1,24 +1,20 @@
 
+
 # Website Kalkulator
 
 ## Kalkulator Standard
 
+![Tampilan Kalkulator Standard](https://photos.app.goo.gl/PqhmNXayuNXbLXt58)
+
 Kalkulator Standard dapat membantu anda dalam menghitung sehari-hariAlat untuk menghitung penjumlahan, pengurangan, perkalian, pembagian dan rumus matematika tertentu.
 **Fitur :** 
- 1. Aritmatika
-	 Dapat menghitung perjumlahan, pengurangan, perkalian, dan pembagian.
- 2. Persentase
-	 Menjadikan angka yang anda tulis menjadi persen
- 3. Positif Negatif
-	 Menjadikan angka yang anda tulis menjadi negatif atau positif
- 4. Kuadrat
-	 Menjadikan Angka yang anda tulis menjadi akar kuadrat.
- 5. Riwayat
-	 Anda dapat menggunakan hasil dari riwayat anda untuk mulai 	menghitung kembali.  
- 6. Memory Clear (MC)
-	 Untuk menghapus seluruh perhitungan.
- 7. All Clear (AC)
-	 Untuk menghapus seluruh perhitungan anda yang terbaru
+ 1. Aritmatika : Dapat menghitung perjumlahan, pengurangan, perkalian, dan pembagian.
+ 2. Persentase : Menjadikan angka yang anda tulis menjadi persen
+ 3. Positif Negatif : Menjadikan angka yang anda tulis menjadi negatif atau positif
+ 4. Kuadrat : Menjadikan Angka yang anda tulis menjadi akar kuadrat.
+ 5. Riwayat : Anda dapat menggunakan hasil dari riwayat anda untuk mulai menghitung kembali.  
+ 6. Memory Clear (MC) : Untuk menghapus seluruh perhitungan.
+ 7. All Clear (AC) : Untuk menghapus seluruh perhitungan anda yang terbaru
 
 ## Kalkulator BMI
 Kalkulator BMI dapat mengukur kelangsingan atau kegemukan seseorang berdasarkan tinggi dan berat badan mereka.
@@ -32,6 +28,8 @@ Kalkulator BMI dapat mengukur kelangsingan atau kegemukan seseorang berdasarkan 
 ## Kalkulator Temperature
 
 *Comming Soon*
+
+Link : [https://agvenmuharisrifqi.github.io/Calculator/](https://agvenmuharisrifqi.github.io/Calculator/)
 
 Thank you for viewing my repository, I hope you like it 😁
 
