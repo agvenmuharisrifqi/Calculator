@@ -232,26 +232,26 @@
     <section class="content__item temperature__content">
       <div class="temperature__wrapper">
         <div class="temperature__input">
-          <label for="temperature-one">Celcius</label>
+          <label for="temperature-one" label-point>Celcius</label>
           <div>
-            <input class="temperature__item__input" type="text" name="temperature-one" id="temperature-one">
-            <select class="temperature__item__select" name="select-temperature" id="select-temperature">
+            <input class="temperature__item__input" type="text" name="temperature-one" id="temperature-one" value="0"
+              temp-point>
+            <select class="temperature__item__select" name="select-temperature" id="select-temperature" label-temp>
               <option value="celcius" selected>Celcius °C</option>
               <option value="fahrenheit">Fahrenheit °F</option>
               <option value="kelvin">Kelvin K</option>
-              <option value="reaemure">Reamure °R</option>
             </select>
           </div>
         </div>
         <div class="temperature__input">
-          <label for="temperature-one">Celcius</label>
+          <label for="temperature-one" label-point>Fahrenheit</label>
           <div>
-            <input class="temperature__item__input" type="text" name="temperature-one" id="temperature-one">
-            <select class="temperature__item__select" name="select-temperature" id="select-temperature">
-              <option value="celcius" selected>Celcius °C</option>
-              <option value="fahrenheit">Fahrenheit °F</option>
+            <input class="temperature__item__input" type="text" name="temperature-one" id="temperature-one" value="32"
+              temp-point>
+            <select class="temperature__item__select" name="select-temperature" id="select-temperature" label-temp>
+              <option value="celcius">Celcius °C</option>
+              <option value="fahrenheit" selected>Fahrenheit °F</option>
               <option value="kelvin">Kelvin K</option>
-              <option value="reaemure">Reamure °R</option>
             </select>
           </div>
         </div>
@@ -263,6 +263,7 @@
   <script src="script.js"></script>
   <script src="kalkulator.js"></script>
   <script src="bmi.js"></script>
+  <script src="suhu.js"></script>
   <!-- Script Font Awesome -->
   <script src="https://kit.fontawesome.com/69f952805c.js" crossorigin="anonymous"></script>
 </body>
